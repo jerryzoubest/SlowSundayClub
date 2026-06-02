@@ -20,9 +20,12 @@
       {% endif %}
 
       {% if product.media.size > 1 %}
-        <div class="ssc-thumbs" aria-label="Product media">
+        <div class="ssc-thumbs" aria-label="Product images">
           {% for media in product.media limit: 4 %}
-            <button type="button" data-ssc-thumb="{{ media | image_url: width: 1100 }}" data-ssc-alt="{{ media.alt | default: product.title | escape }}">
+            <button type="button"
+              data-ssc-thumb="{{ media | image_url: width: 1100 }}"
+              data-ssc-alt="{{ media.alt | default: product.title | escape }}"
+              {% if forloop.first %}class="is-active"{% endif %}>
               {{ media | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90, 140, 180', alt: media.alt | default: product.title }}
             </button>
           {% endfor %}
@@ -33,6 +36,9 @@
     <div class="ssc-product__info">
       <h1>{{ product.title }}</h1>
       <p class="ssc-price">{{ current_variant.price | money }}</p>
+      <p class="ssc-stock {% if current_variant.available %}ssc-stock--ok{% endif %}">
+        {% if current_variant.available %}In stock{% else %}Sold out{% endif %}
+      </p>
 
       {% if product.description != blank %}
         <div class="ssc-product__description">
@@ -71,23 +77,44 @@
         <label class="ssc-quantity">
           <span>Quantity</span>
           <span class="ssc-stepper">
-            <button type="button" data-ssc-minus aria-label="Decrease quantity">-</button>
+            <button type="button" data-ssc-minus aria-label="Decrease quantity">&minus;</button>
             <input type="number" name="quantity" value="1" min="1">
             <button type="button" data-ssc-plus aria-label="Increase quantity">+</button>
           </span>
         </label>
 
         <button class="ssc-button ssc-button--dark" type="submit" {% unless current_variant.available %}disabled{% endunless %}>
-          {% if current_variant.available %}Add To Cart{% else %}Sold Out{% endif %}
+          {% if current_variant.available %}Add to Cart{% else %}Sold Out{% endif %}
         </button>
+
         {{ form | payment_button }}
       {% endform %}
 
-      <script type="application/json" data-ssc-variants>
-        {{ product.variants | json }}
-      </script>
+      <div class="ssc-trust-row" aria-label="Shopping guarantees">
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          Free shipping Rp 500k+
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 .49-3.89"/>
+          </svg>
+          30-day Returns
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          Secure Checkout
+        </span>
+      </div>
 
-      <button class="ssc-wishlist" type="button">Add To Wishlist</button>
+      <button class="ssc-wishlist" type="button">&#9825; Save to Wishlist</button>
 
       <div class="ssc-accordions">
         <details>
@@ -103,9 +130,23 @@
           <div>{{ section.settings.shipping_returns }}</div>
         </details>
       </div>
+
+      <script type="application/json" data-ssc-variants>
+        {{ product.variants | json }}
+      </script>
     </div>
   </div>
 </section>
+
+<div class="ssc-sticky-atc" aria-hidden="true">
+  <div class="ssc-sticky-atc__info">
+    <span class="ssc-sticky-atc__title">{{ product.title }}</span>
+    <span class="ssc-sticky-atc__price">{{ current_variant.price | money }}</span>
+  </div>
+  <button class="ssc-button ssc-button--dark" type="button" {% unless current_variant.available %}disabled{% endunless %}>
+    {% if current_variant.available %}Add to Cart{% else %}Sold Out{% endif %}
+  </button>
+</div>
 
 {% schema %}
 {
@@ -121,7 +162,7 @@
       "type": "richtext",
       "id": "shipping_returns",
       "label": "Shipping and returns",
-      "default": "<p>Free shipping on eligible orders and 30-day easy returns.</p>"
+      "default": "<p>Free shipping on orders over Rp 500.000. Easy 30-day returns.</p>"
     }
   ]
 }

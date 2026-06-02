@@ -1,15 +1,41 @@
+{% assign free_ship = 50000000 %}
+
 <section class="ssc-cart">
   <div class="ssc-cart__top">
-    <h1>Your Cart</h1>
+    <h1>Your Bag</h1>
     <a href="{{ routes.all_products_collection_url }}">Continue Shopping</a>
   </div>
 
   {% if cart.item_count == 0 %}
     <div class="ssc-empty">
-      <p>Your cart is empty.</p>
-      <a class="ssc-button ssc-button--dark" href="{{ routes.all_products_collection_url }}">Shop The Collection</a>
+      <svg class="ssc-empty__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 0 1-8 0"/>
+      </svg>
+      <p>Your bag is empty &mdash; let&rsquo;s fix that.</p>
+      <a class="ssc-button ssc-button--dark" href="{{ routes.all_products_collection_url }}">Shop the Collection</a>
     </div>
   {% else %}
+
+    {% if cart.total_price < free_ship %}
+      {% assign remaining = free_ship | minus: cart.total_price %}
+      {% assign pct = cart.total_price | times: 100 | divided_by: free_ship %}
+      <div class="ssc-cart-shipping">
+        <p>Add <strong>{{ remaining | money }}</strong> more for <strong>free shipping</strong></p>
+        <div class="ssc-shipping-bar__track">
+          <div class="ssc-shipping-bar__fill" style="width: {{ pct }}%"></div>
+        </div>
+      </div>
+    {% else %}
+      <div class="ssc-cart-shipping ssc-cart-shipping--done">
+        <p><strong>🎉 You&rsquo;ve unlocked free shipping!</strong></p>
+        <div class="ssc-shipping-bar__track">
+          <div class="ssc-shipping-bar__fill" style="width: 100%"></div>
+        </div>
+      </div>
+    {% endif %}
+
     <form action="{{ routes.cart_url }}" method="post" class="ssc-cart__form">
       <div class="ssc-cart__items">
         <div class="ssc-cart__head">
@@ -33,30 +59,53 @@
             </a>
             <span>{{ item.final_price | money }}</span>
             <span class="ssc-stepper">
-              <button type="button" data-ssc-minus aria-label="Decrease quantity">-</button>
+              <button type="button" data-ssc-minus aria-label="Decrease quantity">&minus;</button>
               <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity for {{ item.product.title }}">
               <button type="button" data-ssc-plus aria-label="Increase quantity">+</button>
             </span>
             <span>{{ item.final_line_price | money }}</span>
-            <a class="ssc-cart-line__remove" href="{{ item.url_to_remove }}" aria-label="Remove {{ item.product.title }}">x</a>
+            <a class="ssc-cart-line__remove" href="{{ item.url_to_remove }}" aria-label="Remove {{ item.product.title }}">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </a>
           </article>
         {% endfor %}
       </div>
 
       <div class="ssc-cart__checkout">
         <label>
-          <span>Add order note</span>
-          <textarea name="note">{{ cart.note }}</textarea>
+          <span>Order note</span>
+          <textarea name="note" placeholder="Special requests, gift messages…">{{ cart.note }}</textarea>
         </label>
         <aside>
           <p><span>Subtotal</span><strong>{{ cart.items_subtotal_price | money }}</strong></p>
           <p><span>Shipping</span><strong>Calculated at checkout</strong></p>
           <p class="ssc-cart__total"><span>Total</span><strong>{{ cart.total_price | money }}</strong></p>
           <button class="ssc-button ssc-button--dark" type="submit" name="checkout">Checkout Securely</button>
-          <ul>
-            <li>Free shipping on orders over $69</li>
-            <li>30-day easy returns</li>
-          </ul>
+          <div class="ssc-trust-row ssc-trust-row--cart">
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7z"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+              Free Shipping
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="1 4 1 10 7 10"/>
+                <path d="M3.51 15a9 9 0 1 0 .49-3.89"/>
+              </svg>
+              Easy Returns
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              Secure Pay
+            </span>
+          </div>
         </aside>
       </div>
     </form>

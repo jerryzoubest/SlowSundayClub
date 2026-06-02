@@ -1,15 +1,46 @@
 <section class="ssc-checkout-preview">
   <div class="ssc-checkout-preview__panel">
-    <h1>Payment</h1>
-    <p>Shopify checkout is hosted by Shopify. Use this page as a visual reference for your checkout branding, then set matching colors and logo in Shopify Admin.</p>
-    <a class="ssc-button ssc-button--dark" href="{{ routes.cart_url }}">Return To Cart</a>
+    <nav class="ssc-checkout-steps" aria-label="Checkout progress">
+      <span class="active">Cart</span>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span class="active">Information</span>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span class="active">Shipping</span>
+      <span aria-hidden="true">&rsaquo;</span>
+      <span>Payment</span>
+    </nav>
+    <h1>Checkout</h1>
+    <p>Your checkout is securely powered by Shopify. To match Slow Sunday Club&rsquo;s warm aesthetic, go to <strong>Shopify Admin &rarr; Online Store &rarr; Themes &rarr; Customize Checkout</strong> and set the background color to <code>#f8f4ee</code> and upload your logo.</p>
+    <a class="ssc-button ssc-button--dark" href="{{ routes.cart_url }}">Return to Cart</a>
   </div>
+
   <aside class="ssc-order-summary">
     <h2>Order Summary</h2>
     {% for item in cart.items %}
-      <p><span>{{ item.product.title }}</span><strong>{{ item.final_line_price | money }}</strong></p>
+      <div class="ssc-order-item">
+        {% if item.image %}
+          {{ item.image | image_url: width: 120 | image_tag: loading: 'lazy', widths: '60, 90, 120', alt: item.product.title, class: 'ssc-order-item__img' }}
+        {% else %}
+          <div class="ssc-order-item__img"></div>
+        {% endif %}
+        <div>
+          <p>{{ item.product.title }}</p>
+          {% unless item.product.has_only_default_variant %}
+            <small>{{ item.variant.title }}</small>
+          {% endunless %}
+          <small>Qty: {{ item.quantity }}</small>
+        </div>
+        <strong>{{ item.final_line_price | money }}</strong>
+      </div>
+    {% else %}
+      <p style="color: var(--ssc-muted); font-size: .85rem;">No items in cart.</p>
     {% endfor %}
-    <p class="ssc-cart__total"><span>Total</span><strong>{{ cart.total_price | money }}</strong></p>
+
+    <div class="ssc-order-totals">
+      <p><span>Subtotal</span><strong>{{ cart.items_subtotal_price | money }}</strong></p>
+      <p><span>Shipping</span><span>Calculated next</span></p>
+      <p class="ssc-cart__total"><span>Total</span><strong>{{ cart.total_price | money }}</strong></p>
+    </div>
   </aside>
 </section>
 
