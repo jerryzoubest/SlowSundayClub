@@ -3,13 +3,15 @@
     "main": {
       "type": "ssc-home",
       "settings": {
-        "eyebrow": "Move Mindfully",
-        "heading": "Essentials for your everyday flow",
+        "eyebrow": "Move. Breathe. Connect.",
+        "heading": "Mindful Essentials for Your Flow",
         "text": "Thoughtful pieces for your practice, your routine, your calm.",
-        "button_label": "Shop The Collection",
+        "button_label": "Shop Collection",
         "button_link": "shopify://collections/all",
-        "feature_heading": "Made for movement. Designed for calm.",
-        "feature_text": "Pieces that fit seamlessly into your practice and your life."
+        "category_heading": "Shop By Category",
+        "feature_heading": "Designed for Movement & Mindfulness",
+        "feature_text": "Thoughtful essentials that support your practice, on and off the mat.",
+        "feature_button": "Learn More"
       }
     }
   },

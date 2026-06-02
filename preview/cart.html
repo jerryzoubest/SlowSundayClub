@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Your Cart &mdash; Slow Sunday Club</title>
+    <link rel="stylesheet" href="../assets/ssc-theme.css">
+    <link rel="stylesheet" href="preview.css">
+    <script src="../assets/ssc-theme.js" defer></script>
+  </head>
+  <body>
+    <div class="ssc-announcement"><p>FREE SHIPPING ON ORDERS OVER $69</p></div>
+    <header class="ssc-header">
+      <nav class="ssc-header__nav" aria-label="Primary navigation">
+        <a href="collection.html">Shop</a>
+        <a href="contact.html">About</a>
+        <a href="collection.html">Lookbook</a>
+        <a href="index.html#journal">Journal</a>
+      </nav>
+      <a class="ssc-header__brand" href="index.html">Slow Sunday Club</a>
+      <div class="ssc-header__actions">
+        <a href="collection.html" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg></a>
+        <a href="contact.html" aria-label="Account"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 22c1.6-4.1 4.2-6 8-6s6.4 1.9 8 6"></path></svg></a>
+        <a class="ssc-cart-link" href="cart.html" aria-label="Cart"><svg viewBox="0 0 24 24"><path d="M7 8h14l-2 10H8L6 3H3"></path><circle cx="9" cy="21" r="1"></circle><circle cx="18" cy="21" r="1"></circle></svg><span>2</span></a>
+      </div>
+    </header>
+
+    <main class="ssc-main">
+      <section class="ssc-cart">
+        <div class="ssc-cart__top"><h1>Your Cart</h1><a href="collection.html">Continue Shopping</a></div>
+        <form class="ssc-cart__form" action="thank-you.html">
+          <div class="ssc-cart__items">
+            <div class="ssc-cart__head"><span>Product</span><span>Price</span><span>Quantity</span><span>Total</span></div>
+            <article class="ssc-cart-line">
+              <a class="ssc-cart-line__product" href="product.html"><div class="ssc-placeholder pv-socks"></div><span><strong>Grip Socks &mdash; Sand</strong><small>M / Sand</small></span></a>
+              <span>$19.00</span>
+              <span class="ssc-stepper"><button type="button" data-ssc-minus>-</button><input type="number" value="1" min="0"><button type="button" data-ssc-plus>+</button></span>
+              <span>$19.00</span>
+              <a class="ssc-cart-line__remove" href="cart.html" aria-label="Remove">&times;</a>
+            </article>
+            <article class="ssc-cart-line">
+              <a class="ssc-cart-line__product" href="product.html"><div class="ssc-placeholder pv-bottle"></div><span><strong>Insulated Water Bottle</strong><small>Sand</small></span></a>
+              <span>$49.00</span>
+              <span class="ssc-stepper"><button type="button" data-ssc-minus>-</button><input type="number" value="2" min="0"><button type="button" data-ssc-plus>+</button></span>
+              <span>$98.00</span>
+              <a class="ssc-cart-line__remove" href="cart.html" aria-label="Remove">&times;</a>
+            </article>
+          </div>
+          <div class="ssc-cart__checkout">
+            <label><span>Add order note</span><textarea placeholder="Notes about your order"></textarea></label>
+            <aside>
+              <p><span>Subtotal</span><strong>$117.00</strong></p>
+              <p><span>Shipping</span><strong>Calculated at checkout</strong></p>
+              <p class="ssc-cart__total"><span>Total</span><strong>$117.00</strong></p>
+              <button class="ssc-button ssc-button--dark" type="submit">Checkout Securely</button>
+              <ul><li>Free shipping on orders over $69</li><li>30-day easy returns</li></ul>
+            </aside>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="ssc-footer">
+      <div class="ssc-footer__bar">
+        <nav aria-label="Footer navigation">
+          <a href="collection.html">Shop</a><a href="contact.html">About</a><a href="collection.html">Lookbook</a><a href="index.html#journal">Journal</a>
+        </nav>
+        <a class="ssc-footer__brand" href="index.html">Slow Sunday Club</a>
+        <p>&copy; 2026 Slow Sunday Club</p>
+      </div>
+    </footer>
+  </body>
+</html>

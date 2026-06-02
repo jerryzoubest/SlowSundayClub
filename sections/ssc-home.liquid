@@ -22,32 +22,9 @@
   </div>
 </section>
 
-<section class="ssc-values" aria-label="Store values">
-  <article>
-    <span aria-hidden="true">M</span>
-    <h2>Mindful Design</h2>
-    <p>Made to support your flow</p>
-  </article>
-  <article>
-    <span aria-hidden="true">S</span>
-    <h2>Sustainable</h2>
-    <p>Eco-friendly materials</p>
-  </article>
-  <article>
-    <span aria-hidden="true">Q</span>
-    <h2>Quality First</h2>
-    <p>Durable and long lasting</p>
-  </article>
-  <article>
-    <span aria-hidden="true">E</span>
-    <h2>For Every Day</h2>
-    <p>From the mat to wherever</p>
-  </article>
-</section>
-
 <section class="ssc-section">
   <div class="ssc-section__heading">
-    <h2>Shop Our Essentials</h2>
+    <h2>{{ section.settings.category_heading | default: 'Shop By Category' | escape }}</h2>
   </div>
   <div class="ssc-essential-grid">
     {% for product in featured_collection.products limit: 3 %}
@@ -63,11 +40,12 @@
       </a>
     {% else %}
       {% assign fallback_titles = 'Yoga Socks,Water Bottles,Yoga Bags' | split: ',' %}
+      {% assign fallback_subs = 'Comfort &amp; Grip,Hydrate in Style,Carry Your Flow' | split: ',' %}
       {% for title in fallback_titles %}
         <article class="ssc-essential-card">
           <div class="ssc-placeholder"></div>
           <h3>{{ title }}</h3>
-          <p>Slow Sunday essential</p>
+          <p>{{ fallback_subs[forloop.index0] }}</p>
           <span>Shop Now</span>
         </article>
       {% endfor %}
@@ -79,7 +57,9 @@
   <div class="ssc-feature__copy">
     <h2>{{ section.settings.feature_heading | escape }}</h2>
     <p>{{ section.settings.feature_text | escape }}</p>
-    <a class="ssc-button ssc-button--light" href="/pages/about">About Us</a>
+    <a class="ssc-button ssc-button--light" href="{{ section.settings.feature_link | default: '/pages/about' }}">
+      {{ section.settings.feature_button | default: 'Learn More' | escape }}
+    </a>
   </div>
   <div class="ssc-feature__media">
     {% if section.settings.feature_image != blank %}
@@ -90,6 +70,37 @@
       <div class="ssc-placeholder ssc-placeholder--wide"></div>
     {% endif %}
   </div>
+</section>
+
+<section class="ssc-values" aria-label="Why shop with us">
+  <article>
+    <span aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 21c5-2 8-6 8-12V4l-8 2-8-2v5c0 6 3 10 8 12Z"></path><path d="M12 8v8"></path></svg>
+    </span>
+    <h2>Sustainable</h2>
+    <p>Eco-friendly materials</p>
+  </article>
+  <article>
+    <span aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3c2 3 2 5 0 8-2-3-2-5 0-8Z"></path><path d="M4 13c3-1 5 0 8 3-3 1-5 0-8-3Z"></path><path d="M20 13c-3-1-5 0-8 3 3 1 5 0 8-3Z"></path></svg>
+    </span>
+    <h2>Mindful Design</h2>
+    <p>Made for your flow</p>
+  </article>
+  <article>
+    <span aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 7.5 8 9 4.5-1.5 8-4 8-9V6l-8-3Z"></path><path d="m9 12 2 2 4-4"></path></svg>
+    </span>
+    <h2>Quality First</h2>
+    <p>Durable &amp; long-lasting</p>
+  </article>
+  <article>
+    <span aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10Z"></path></svg>
+    </span>
+    <h2>Support Wellness</h2>
+    <p>For every step of your journey</p>
+  </article>
 </section>
 
 <section class="ssc-section">
@@ -144,13 +155,13 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Move Mindfully"
+      "default": "Move. Breathe. Connect."
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Essentials for your everyday flow"
+      "default": "Mindful Essentials for Your Flow"
     },
     {
       "type": "textarea",
@@ -162,12 +173,18 @@
       "type": "text",
       "id": "button_label",
       "label": "Button label",
-      "default": "Shop The Collection"
+      "default": "Shop Collection"
     },
     {
       "type": "url",
       "id": "button_link",
       "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "category_heading",
+      "label": "Category section heading",
+      "default": "Shop By Category"
     },
     {
       "type": "image_picker",
@@ -178,13 +195,24 @@
       "type": "text",
       "id": "feature_heading",
       "label": "Feature heading",
-      "default": "Made for movement. Designed for calm."
+      "default": "Designed for Movement & Mindfulness"
     },
     {
       "type": "textarea",
       "id": "feature_text",
       "label": "Feature text",
-      "default": "Pieces that fit seamlessly into your practice and your life."
+      "default": "Thoughtful essentials that support your practice, on and off the mat."
+    },
+    {
+      "type": "text",
+      "id": "feature_button",
+      "label": "Feature button label",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "feature_link",
+      "label": "Feature button link"
     }
   ]
 }
