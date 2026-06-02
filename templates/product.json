@@ -186,6 +186,35 @@
               },
               "blocks": {}
             },
+            "size_guide_popup": {
+              "type": "popup-link",
+              "name": "Size Guide",
+              "settings": {
+                "behavior": "drawer",
+                "heading": "Size Guide",
+                "type_preset": "paragraph",
+                "padding-block-start": 0,
+                "padding-block-end": 8,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "size_guide_text": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<h3>Pilates Socks</h3><table><thead><tr><th>Size</th><th>EU</th><th>US</th><th>UK</th></tr></thead><tbody><tr><td>S/M</td><td>35–38</td><td>5–7.5</td><td>3–5.5</td></tr><tr><td>L/XL</td><td>39–42</td><td>8–11</td><td>6–9</td></tr></tbody></table><h3 style='margin-top:1.5rem'>Tote Bag</h3><p>One size — 40cm × 35cm, 8cm gusset. Handles: 60cm drop.</p><h3 style='margin-top:1.5rem'>Water Bottle</h3><p>600ml capacity. Height: 26cm. Diameter: 7.5cm.</p><p style='margin-top:1rem;opacity:0.6;font-size:0.85em'>Tip: if between sizes, size up for socks.</p>",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": ["size_guide_text"]
+            },
             "buy_buttons_eYQEYi": {
               "type": "buy-buttons",
               "settings": {
@@ -252,6 +281,7 @@
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
+            "size_guide_popup",
             "buy_buttons_eYQEYi",
             "text_aEtTtq"
           ]

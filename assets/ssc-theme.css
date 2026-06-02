@@ -1521,8 +1521,48 @@ body.ssc-drawer-open .ssc-cart-drawer {
   font-weight: 400;
 }
 
-/* ── Wishlist button ── */
+/* ── Wishlist button (product page) ── */
 .ssc-wishlist { color: var(--ssc-muted); }
+
+/* ── Wishlist button (product card overlay) ── */
+.ssc-wishlist-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.88);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+.ssc-wishlist-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: #2A1520;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+.ssc-wishlist-btn.is-wishlisted svg {
+  fill: #C0707A;
+  stroke: #C0707A;
+}
+.product-card:hover .ssc-wishlist-btn,
+.product-card .ssc-wishlist-btn.is-wishlisted {
+  opacity: 1;
+  transform: scale(1);
+}
+.product-card__content {
+  position: relative;
+}
 
 /* ── Mobile: collapse sticky ATC label ── */
 @media (max-width: 640px) {

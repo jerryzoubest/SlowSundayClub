@@ -259,6 +259,47 @@
     }
   });
 
+  // ── Bridge: open SSC drawer when theme's buy-buttons fires cart:update ───
+  document.addEventListener('cart:update', async () => {
+    await refreshDrawer();
+    openDrawer();
+  });
+
+  // ── Wishlist (localStorage) ───────────────────────────────────────────────
+  const WISHLIST_KEY = 'ssc_wishlist';
+
+  function getWishlist() {
+    try { return JSON.parse(localStorage.getItem(WISHLIST_KEY) || '[]'); } catch { return []; }
+  }
+
+  function saveWishlist(ids) {
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify(ids));
+  }
+
+  function syncWishlistButtons() {
+    const saved = getWishlist();
+    document.querySelectorAll('[data-wishlist-id]').forEach(btn => {
+      const active = saved.includes(String(btn.dataset.wishlistId));
+      btn.classList.toggle('is-wishlisted', active);
+      btn.setAttribute('aria-label', active ? 'Remove from wishlist' : 'Add to wishlist');
+    });
+  }
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('[data-wishlist-id]');
+    if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const id = String(btn.dataset.wishlistId);
+    const list = getWishlist();
+    const idx = list.indexOf(id);
+    if (idx === -1) list.push(id); else list.splice(idx, 1);
+    saveWishlist(list);
+    syncWishlistButtons();
+  });
+
+  syncWishlistButtons();
+
   // ── Init cart count on load ───────────────────────────────────────────────
   cartGet().then(c => setCount(c.item_count)).catch(() => {});
 })();
