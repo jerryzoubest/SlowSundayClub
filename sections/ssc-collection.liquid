@@ -1,0 +1,39 @@
+<section class="ssc-collection">
+  <header class="ssc-page-hero">
+    <p class="ssc-eyebrow">Slow Sunday Club</p>
+    <h1>{{ collection.title | default: 'Shop' }}</h1>
+    {% if collection.description != blank %}
+      <div>{{ collection.description }}</div>
+    {% endif %}
+  </header>
+
+  {% paginate collection.products by 24 %}
+    <div class="ssc-product-grid">
+      {% for product in collection.products %}
+        <a class="ssc-product-card" href="{{ product.url }}">
+          {% if product.featured_image %}
+            {{ product.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', alt: product.title }}
+          {% else %}
+            <div class="ssc-placeholder"></div>
+          {% endif %}
+          <span>{{ product.title }}</span>
+          <strong>{{ product.price | money }}</strong>
+        </a>
+      {% else %}
+        <p>No products found in this collection.</p>
+      {% endfor %}
+    </div>
+
+    {% if paginate.pages > 1 %}
+      <nav class="ssc-pagination" aria-label="Pagination">
+        {{ paginate | default_pagination }}
+      </nav>
+    {% endif %}
+  {% endpaginate %}
+</section>
+
+{% schema %}
+{
+  "name": "SSC Collection"
+}
+{% endschema %}

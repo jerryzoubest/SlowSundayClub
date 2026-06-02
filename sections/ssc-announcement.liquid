@@ -1,0 +1,17 @@
+<div class="ssc-announcement">
+  <p>{{ section.settings.text | escape }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "SSC Announcement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "FREE SHIPPING ON ORDERS OVER $69"
+    }
+  ]
+}
+{% endschema %}

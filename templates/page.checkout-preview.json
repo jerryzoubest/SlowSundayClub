@@ -1,7 +1,7 @@
 {
   "sections": {
     "main": {
-      "type": "ssc-page"
+      "type": "ssc-checkout-preview"
     }
   },
   "order": [

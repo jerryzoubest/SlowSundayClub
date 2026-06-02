@@ -1,0 +1,39 @@
+<section class="ssc-page">
+  <header class="ssc-page-hero">
+    <p class="ssc-eyebrow">{{ shop.name }}</p>
+    <h1>{{ page.title | default: 'Contact' }}</h1>
+  </header>
+
+  <div class="ssc-contact-grid">
+    <div class="ssc-rte">
+      {{ page.content }}
+    </div>
+    {% form 'contact', class: 'ssc-contact-form' %}
+      {% if form.posted_successfully? %}
+        <p class="ssc-form-message">Thank you. We will be in touch soon.</p>
+      {% endif %}
+      {% if form.errors %}
+        <div class="ssc-form-message">{{ form.errors | default_errors }}</div>
+      {% endif %}
+      <label>
+        <span>Name</span>
+        <input type="text" name="contact[name]" value="{{ form.name }}">
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="contact[email]" value="{{ form.email }}" required>
+      </label>
+      <label>
+        <span>Message</span>
+        <textarea name="contact[body]" required>{{ form.body }}</textarea>
+      </label>
+      <button class="ssc-button ssc-button--dark" type="submit">Send Message</button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SSC Contact"
+}
+{% endschema %}

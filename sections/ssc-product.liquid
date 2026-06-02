@@ -1,0 +1,128 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<section class="ssc-product">
+  <nav class="ssc-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ routes.root_url }}">Home</a>
+    <span>/</span>
+    <a href="{{ routes.all_products_collection_url }}">Shop</a>
+    <span>/</span>
+    <span>{{ product.title }}</span>
+  </nav>
+
+  <div class="ssc-product__grid">
+    <div class="ssc-product__media">
+      {% if product.featured_media %}
+        <div class="ssc-product__image">
+          {{ product.featured_media | image_url: width: 1100 | image_tag: loading: 'eager', widths: '520, 760, 1100', alt: product.title }}
+        </div>
+      {% else %}
+        <div class="ssc-placeholder ssc-placeholder--product"></div>
+      {% endif %}
+
+      {% if product.media.size > 1 %}
+        <div class="ssc-thumbs" aria-label="Product media">
+          {% for media in product.media limit: 4 %}
+            <button type="button" data-ssc-thumb="{{ media | image_url: width: 1100 }}" data-ssc-alt="{{ media.alt | default: product.title | escape }}">
+              {{ media | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90, 140, 180', alt: media.alt | default: product.title }}
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="ssc-product__info">
+      <h1>{{ product.title }}</h1>
+      <p class="ssc-price">{{ current_variant.price | money }}</p>
+
+      {% if product.description != blank %}
+        <div class="ssc-product__description">
+          {{ product.description | strip_html | truncatewords: 34 }}
+        </div>
+      {% endif %}
+
+      {% form 'product', product, class: 'ssc-product-form' %}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+        {% unless product.has_only_default_variant %}
+          {% for option in product.options_with_values %}
+            <fieldset class="ssc-option">
+              <legend>{{ option.name }}</legend>
+              <div class="ssc-option__values">
+                {% for value in option.values %}
+                  {% assign input_id = section.id | append: '-' | append: option.position | append: '-' | append: forloop.index0 %}
+                  <label for="{{ input_id }}" class="{% if option.name == 'Color' or option.name == 'Colour' %}ssc-swatch{% endif %}">
+                    <input
+                      id="{{ input_id }}"
+                      type="radio"
+                      name="options[{{ option.name | escape }}]"
+                      value="{{ value | escape }}"
+                      {% if option.selected_value == value %}checked{% endif %}
+                    >
+                    <span {% if option.name == 'Color' or option.name == 'Colour' %}style="--swatch: {{ value | handle | replace: '-', '' }}"{% endif %}>
+                      {{ value }}
+                    </span>
+                  </label>
+                {% endfor %}
+              </div>
+            </fieldset>
+          {% endfor %}
+        {% endunless %}
+
+        <label class="ssc-quantity">
+          <span>Quantity</span>
+          <span class="ssc-stepper">
+            <button type="button" data-ssc-minus aria-label="Decrease quantity">-</button>
+            <input type="number" name="quantity" value="1" min="1">
+            <button type="button" data-ssc-plus aria-label="Increase quantity">+</button>
+          </span>
+        </label>
+
+        <button class="ssc-button ssc-button--dark" type="submit" {% unless current_variant.available %}disabled{% endunless %}>
+          {% if current_variant.available %}Add To Cart{% else %}Sold Out{% endif %}
+        </button>
+        {{ form | payment_button }}
+      {% endform %}
+
+      <script type="application/json" data-ssc-variants>
+        {{ product.variants | json }}
+      </script>
+
+      <button class="ssc-wishlist" type="button">Add To Wishlist</button>
+
+      <div class="ssc-accordions">
+        <details>
+          <summary>Product Details</summary>
+          <div>{{ product.description }}</div>
+        </details>
+        <details>
+          <summary>Material &amp; Care</summary>
+          <div>{{ section.settings.material_care }}</div>
+        </details>
+        <details>
+          <summary>Shipping &amp; Returns</summary>
+          <div>{{ section.settings.shipping_returns }}</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SSC Product",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "material_care",
+      "label": "Material and care",
+      "default": "<p>Wash cold, air dry, and store away from direct sun.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "shipping_returns",
+      "label": "Shipping and returns",
+      "default": "<p>Free shipping on eligible orders and 30-day easy returns.</p>"
+    }
+  ]
+}
+{% endschema %}

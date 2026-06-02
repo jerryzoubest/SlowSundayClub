@@ -1,0 +1,42 @@
+<section class="ssc-search">
+  <header class="ssc-page-hero">
+    <p class="ssc-eyebrow">Search</p>
+    <h1>{% if search.performed %}Results for "{{ search.terms | escape }}"{% else %}Search Slow Sunday Club{% endif %}</h1>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="ssc-search-form">
+      <label class="ssc-visually-hidden" for="SearchInput-{{ section.id }}">Search</label>
+      <input id="SearchInput-{{ section.id }}" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products and stories">
+      <button class="ssc-button ssc-button--dark" type="submit">Search</button>
+    </form>
+  </header>
+
+  {% if search.performed %}
+    {% paginate search.results by 24 %}
+      <div class="ssc-product-grid">
+        {% for item in search.results %}
+          <a class="ssc-product-card" href="{{ item.url }}">
+            {% if item.featured_image %}
+              {{ item.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', alt: item.title }}
+            {% elsif item.image %}
+              {{ item.image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', alt: item.title }}
+            {% else %}
+              <div class="ssc-placeholder"></div>
+            {% endif %}
+            <span>{{ item.title }}</span>
+            {% if item.price %}<strong>{{ item.price | money }}</strong>{% endif %}
+          </a>
+        {% else %}
+          <p>No results found.</p>
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        <nav class="ssc-pagination" aria-label="Pagination">{{ paginate | default_pagination }}</nav>
+      {% endif %}
+    {% endpaginate %}
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "SSC Search"
+}
+{% endschema %}

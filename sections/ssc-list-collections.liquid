@@ -1,0 +1,28 @@
+<section class="ssc-collection">
+  <header class="ssc-page-hero">
+    <p class="ssc-eyebrow">Shop</p>
+    <h1>Collections</h1>
+  </header>
+  <div class="ssc-product-grid">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <a class="ssc-product-card" href="{{ collection.url }}">
+          {% if collection.featured_image %}
+            {{ collection.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', alt: collection.title }}
+          {% elsif collection.products.first.featured_image %}
+            {{ collection.products.first.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '320, 480, 720', alt: collection.title }}
+          {% else %}
+            <div class="ssc-placeholder"></div>
+          {% endif %}
+          <span>{{ collection.title }}</span>
+        </a>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "SSC List Collections"
+}
+{% endschema %}

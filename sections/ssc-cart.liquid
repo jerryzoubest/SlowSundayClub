@@ -1,0 +1,70 @@
+<section class="ssc-cart">
+  <div class="ssc-cart__top">
+    <h1>Your Cart</h1>
+    <a href="{{ routes.all_products_collection_url }}">Continue Shopping</a>
+  </div>
+
+  {% if cart.item_count == 0 %}
+    <div class="ssc-empty">
+      <p>Your cart is empty.</p>
+      <a class="ssc-button ssc-button--dark" href="{{ routes.all_products_collection_url }}">Shop The Collection</a>
+    </div>
+  {% else %}
+    <form action="{{ routes.cart_url }}" method="post" class="ssc-cart__form">
+      <div class="ssc-cart__items">
+        <div class="ssc-cart__head">
+          <span>Product</span>
+          <span>Price</span>
+          <span>Quantity</span>
+          <span>Total</span>
+        </div>
+        {% for item in cart.items %}
+          <article class="ssc-cart-line">
+            <a href="{{ item.url }}" class="ssc-cart-line__product">
+              {% if item.image %}
+                {{ item.image | image_url: width: 180 | image_tag: loading: 'lazy', widths: '90, 140, 180', alt: item.product.title }}
+              {% endif %}
+              <span>
+                <strong>{{ item.product.title }}</strong>
+                {% unless item.product.has_only_default_variant %}
+                  <small>{{ item.variant.title }}</small>
+                {% endunless %}
+              </span>
+            </a>
+            <span>{{ item.final_price | money }}</span>
+            <span class="ssc-stepper">
+              <button type="button" data-ssc-minus aria-label="Decrease quantity">-</button>
+              <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity for {{ item.product.title }}">
+              <button type="button" data-ssc-plus aria-label="Increase quantity">+</button>
+            </span>
+            <span>{{ item.final_line_price | money }}</span>
+            <a class="ssc-cart-line__remove" href="{{ item.url_to_remove }}" aria-label="Remove {{ item.product.title }}">x</a>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="ssc-cart__checkout">
+        <label>
+          <span>Add order note</span>
+          <textarea name="note">{{ cart.note }}</textarea>
+        </label>
+        <aside>
+          <p><span>Subtotal</span><strong>{{ cart.items_subtotal_price | money }}</strong></p>
+          <p><span>Shipping</span><strong>Calculated at checkout</strong></p>
+          <p class="ssc-cart__total"><span>Total</span><strong>{{ cart.total_price | money }}</strong></p>
+          <button class="ssc-button ssc-button--dark" type="submit" name="checkout">Checkout Securely</button>
+          <ul>
+            <li>Free shipping on orders over $69</li>
+            <li>30-day easy returns</li>
+          </ul>
+        </aside>
+      </div>
+    </form>
+  {% endif %}
+</section>
+
+{% schema %}
+{
+  "name": "SSC Cart"
+}
+{% endschema %}

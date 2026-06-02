@@ -1,0 +1,19 @@
+<article class="ssc-page ssc-article">
+  <header class="ssc-page-hero">
+    <p class="ssc-eyebrow">{{ blog.title }}</p>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.published_at | date: "%B %d, %Y" }}</p>
+  </header>
+  {% if article.image %}
+    {{ article.image | image_url: width: 1400 | image_tag: loading: 'eager', widths: '700, 1000, 1400', alt: article.title, class: 'ssc-article__image' }}
+  {% endif %}
+  <div class="ssc-rte">
+    {{ article.content }}
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "SSC Article"
+}
+{% endschema %}

@@ -1,0 +1,47 @@
+<footer class="ssc-footer">
+  <section class="ssc-newsletter">
+    <div>
+      <h2>{{ section.settings.heading | escape }}</h2>
+      <p>{{ section.settings.text | escape }}</p>
+    </div>
+    {% form 'customer', class: 'ssc-newsletter__form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <label class="ssc-visually-hidden" for="NewsletterEmail-{{ section.id }}">Email</label>
+      <input id="NewsletterEmail-{{ section.id }}" type="email" name="contact[email]" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+      {% if form.posted_successfully? %}<p class="ssc-form-message">Thank you for subscribing.</p>{% endif %}
+      {% if form.errors %}<p class="ssc-form-message">{{ form.errors | default_errors }}</p>{% endif %}
+    {% endform %}
+  </section>
+
+  <div class="ssc-footer__bar">
+    <nav aria-label="Footer navigation">
+      <a href="/collections/all">Shop</a>
+      <a href="/pages/about">About</a>
+      <a href="/blogs/journal">Journal</a>
+      <a href="/pages/lookbook">Lookbook</a>
+    </nav>
+    <a class="ssc-footer__brand" href="{{ routes.root_url }}">{{ shop.name }}</a>
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "SSC Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Be The First To Know"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "New arrivals, wellness tips, and exclusive offers."
+    }
+  ]
+}
+{% endschema %}

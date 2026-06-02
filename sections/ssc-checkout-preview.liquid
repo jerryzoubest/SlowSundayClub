@@ -1,0 +1,20 @@
+<section class="ssc-checkout-preview">
+  <div class="ssc-checkout-preview__panel">
+    <h1>Payment</h1>
+    <p>Shopify checkout is hosted by Shopify. Use this page as a visual reference for your checkout branding, then set matching colors and logo in Shopify Admin.</p>
+    <a class="ssc-button ssc-button--dark" href="{{ routes.cart_url }}">Return To Cart</a>
+  </div>
+  <aside class="ssc-order-summary">
+    <h2>Order Summary</h2>
+    {% for item in cart.items %}
+      <p><span>{{ item.product.title }}</span><strong>{{ item.final_line_price | money }}</strong></p>
+    {% endfor %}
+    <p class="ssc-cart__total"><span>Total</span><strong>{{ cart.total_price | money }}</strong></p>
+  </aside>
+</section>
+
+{% schema %}
+{
+  "name": "SSC Checkout Preview"
+}
+{% endschema %}

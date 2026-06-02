@@ -1,0 +1,64 @@
+{% assign header_menu = section.settings.menu %}
+
+<header class="ssc-header">
+  <nav class="ssc-header__nav" aria-label="Primary navigation">
+    {% if header_menu != blank and header_menu.links.size > 0 %}
+      {% for link in header_menu.links limit: 4 %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    {% else %}
+      <a href="/collections/all">Shop</a>
+      <a href="/pages/about">About</a>
+      <a href="/blogs/journal">Journal</a>
+      <a href="/pages/lookbook">Lookbook</a>
+    {% endif %}
+  </nav>
+
+  <a class="ssc-header__brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    {% if section.settings.logo != blank %}
+      {{ section.settings.logo | image_url: width: 320 | image_tag: loading: 'eager', widths: '160, 240, 320', alt: shop.name }}
+    {% else %}
+      {{ section.settings.logo_text | default: shop.name | escape }}
+    {% endif %}
+  </a>
+
+  <div class="ssc-header__actions">
+    <form action="{{ routes.search_url }}" method="get" role="search">
+      <button type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 5 5"></path></svg>
+      </button>
+    </form>
+    <a href="{{ routes.account_url }}" aria-label="Account">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 22c1.6-4.1 4.2-6 8-6s6.4 1.9 8 6"></path></svg>
+    </a>
+    <a class="ssc-cart-link" href="{{ routes.cart_url }}" aria-label="Cart">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8h14l-2 10H8L6 3H3"></path><circle cx="9" cy="21" r="1"></circle><circle cx="18" cy="21" r="1"></circle></svg>
+      {% if cart.item_count > 0 %}<span>{{ cart.item_count }}</span>{% endif %}
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "SSC Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "Slow Sunday Club"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
