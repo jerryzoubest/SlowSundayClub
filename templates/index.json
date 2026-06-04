@@ -624,8 +624,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 64,
-        "padding-block-end": 64
+        "padding-block-start": 96,
+        "padding-block-end": 96
       }
     },
     "brand_story": {
@@ -1425,11 +1425,11 @@
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
         "vertical_alignment_flex_direction_column": "center",
-        "gap": 24,
+        "gap": 40,
         "section_width": "page-width",
         "section_height": "",
         "section_height_custom": 50,
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
@@ -1441,8 +1441,8 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 72,
+        "padding-block-end": 72
       }
     }
   },
