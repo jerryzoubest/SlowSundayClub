@@ -365,7 +365,6 @@
                 "image": {
                   "type": "image",
                   "settings": {
-                    "image": "shopify://shop_images/ChatGPTImageJun5_2026_03_52_26PM.png",
                     "link": "shopify://products/pilates-grip-socks-no-toe",
                     "image_ratio": "portrait",
                     "width": "fill",

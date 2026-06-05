@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "FREE SHIPPING ON ORDERS",
+            "text": "FREE SHIPPING ON ORDERS OVER 300.000 IDR",
             "link": "",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
