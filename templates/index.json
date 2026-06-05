@@ -231,7 +231,7 @@
                 "image": {
                   "type": "image",
                   "settings": {
-                    "link": "shopify://collections/all",
+                    "link": "shopify://products/gripped-pilates-socks-unisex",
                     "image_ratio": "portrait",
                     "width": "fill",
                     "custom_width": 100,
