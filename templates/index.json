@@ -231,8 +231,7 @@
                 "image": {
                   "type": "image",
                   "settings": {
-                    "image": "shopify://shop_images/ChatGPT_Image_Jun_5_2026_01_36_34_PM.png",
-                    "link": "shopify://products/gripped-pilates-socks-unisex",
+                    "link": "shopify://collections/all",
                     "image_ratio": "portrait",
                     "width": "fill",
                     "custom_width": 100,
@@ -253,7 +252,7 @@
                 "title": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Grip Socks — Classic</p>",
+                    "text": "<p>Pilates Grip Socks — Five Toe</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -278,7 +277,7 @@
                 "description": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Ribbed knit, toe grip</p>",
+                    "text": "<p>Individual toe pockets · Full grip sole</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -315,12 +314,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image",
-                "title",
-                "description",
-                "button"
-              ]
+              "block_order": ["image", "title", "description", "button"]
             },
             "sock_2": {
               "type": "group",
@@ -386,7 +380,7 @@
                 "title": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Grip Socks — Ribbed</p>",
+                    "text": "<p>Pilates Grip Socks — No Toe</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -411,7 +405,7 @@
                 "description": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Full-foot silicone grip</p>",
+                    "text": "<p>Open toe · Full grip sole</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -448,12 +442,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image",
-                "title",
-                "description",
-                "button"
-              ]
+              "block_order": ["image", "title", "description", "button"]
             },
             "sock_3": {
               "type": "group",
@@ -519,7 +508,7 @@
                 "title": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Grip Socks — Crew</p>",
+                    "text": "<p>Pilates Grip Socks — No Toe High Top</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -544,7 +533,7 @@
                 "description": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Crew length, ankle grip</p>",
+                    "text": "<p>Open toe · High-top cuff</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -581,19 +570,10 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image",
-                "title",
-                "description",
-                "button"
-              ]
+              "block_order": ["image", "title", "description", "button"]
             }
           },
-          "block_order": [
-            "sock_1",
-            "sock_2",
-            "sock_3"
-          ]
+          "block_order": ["sock_1", "sock_2", "sock_3"]
         },
         "accessories_row": {
           "type": "group",
@@ -761,12 +741,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image",
-                "title",
-                "description",
-                "button"
-              ]
+              "block_order": ["image", "title", "description", "button"]
             },
             "tote_1": {
               "type": "group",
@@ -894,12 +869,7 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image",
-                "title",
-                "description",
-                "button"
-              ]
+              "block_order": ["image", "title", "description", "button"]
             },
             "tote_2": {
               "type": "group",
@@ -1027,26 +997,13 @@
                   "blocks": {}
                 }
               },
-              "block_order": [
-                "image",
-                "title",
-                "description",
-                "button"
-              ]
+              "block_order": ["image", "title", "description", "button"]
             }
           },
-          "block_order": [
-            "bottle_1",
-            "tote_1",
-            "tote_2"
-          ]
+          "block_order": ["bottle_1", "tote_1", "tote_2"]
         }
       },
-      "block_order": [
-        "heading",
-        "socks_row",
-        "accessories_row"
-      ],
+      "block_order": ["heading", "socks_row", "accessories_row"],
       "name": "The Collection",
       "settings": {
         "content_direction": "column",
@@ -1122,7 +1079,6 @@
             "img": {
               "type": "image",
               "settings": {
-                "image": "shopify://shop_images/openart-gpt-image-2-1_1780477981448_1bc03da3.png",
                 "link": "",
                 "image_ratio": "portrait",
                 "width": "fill",
@@ -1239,7 +1195,7 @@
             "description": {
               "type": "text",
               "settings": {
-                "text": "<p>Founded since 2020 in Vancouver, Canada. Slow Sunday Club started with a simple belief — your practice deserves pieces that feel as good as they look. We make everyday essentials for the pilates girl who moves with intention, on and off the mat. We strive to make the best of your every pilates life, please try them out and give feedbacks!</p>",
+                "text": "<p>Slow Sunday Club started with a simple belief — your practice deserves pieces that feel as good as they look. We make everyday essentials for the pilates girl who moves with intention, on and off the mat.</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
