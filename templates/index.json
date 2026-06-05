@@ -231,6 +231,7 @@
                 "image": {
                   "type": "image",
                   "settings": {
+                    "image": "shopify://shop_images/ChatGPT_Image_Jun_5_2026_01_36_34_PM.png",
                     "link": "shopify://products/gripped-pilates-socks-unisex",
                     "image_ratio": "portrait",
                     "width": "fill",
@@ -364,7 +365,8 @@
                 "image": {
                   "type": "image",
                   "settings": {
-                    "link": "shopify://collections/all",
+                    "image": "shopify://shop_images/ChatGPTImageJun5_2026_03_52_26PM.png",
+                    "link": "shopify://products/pilates-grip-socks-no-toe",
                     "image_ratio": "portrait",
                     "width": "fill",
                     "custom_width": 100,
@@ -497,6 +499,7 @@
                 "image": {
                   "type": "image",
                   "settings": {
+                    "image": "shopify://shop_images/ChatGPT_Image_Jun_5_2026_04_21_16_PM.png",
                     "link": "shopify://collections/all",
                     "image_ratio": "portrait",
                     "width": "fill",
@@ -1121,6 +1124,7 @@
             "img": {
               "type": "image",
               "settings": {
+                "image": "shopify://shop_images/openart-gpt-image-2-1_1780477981448_1bc03da3.png",
                 "link": "",
                 "image_ratio": "portrait",
                 "width": "fill",
@@ -1237,7 +1241,7 @@
             "description": {
               "type": "text",
               "settings": {
-                "text": "<p>Slow Sunday Club started with a simple belief — your practice deserves pieces that feel as good as they look. We make everyday essentials for the pilates girl who moves with intention, on and off the mat.</p>",
+                "text": "<p>Founded since 2022 in Beautiful British Columbia, Vancouver, Canada. </p><p>Slow Sunday Club started with a simple belief — your practice deserves pieces that feel as good as they look. We make everyday essentials for the pilates girl who moves with intention, on and off the mat.</p><p>I hope you will like our products!</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
