@@ -278,7 +278,7 @@
                 "description": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Full-foot silicone grip</p>",
+                    "text": "<p>Ribbed knit, toe grip</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -411,7 +411,7 @@
                 "description": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Ribbed knit, toe grip</p>",
+                    "text": "<p>Full-foot silicone grip</p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
