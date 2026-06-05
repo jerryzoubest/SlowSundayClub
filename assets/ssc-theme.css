@@ -1508,6 +1508,15 @@ body.ssc-drawer-open .ssc-cart-drawer {
 
 .ssc-checkout-steps .active { color: var(--ssc-ink); }
 
+/* ── Sold count badge ── */
+.ssc-sold-count {
+  margin: 0 0 .25rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: var(--ssc-ink);
+}
+
 /* ── Thumb active state ── */
 .ssc-thumbs button.is-active { border-color: var(--ssc-ink); }
 
