@@ -1578,9 +1578,108 @@ body.ssc-drawer-open .ssc-cart-drawer {
   position: relative;
 }
 
+/* ── Collection tile hover — Quick Shop overlay ── */
+.section-builder [class*="image-block"],
+.section-builder [class*="block--image"],
+.section-builder [class*="ImageBlock"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-builder [class*="image-block"]::after,
+.section-builder [class*="block--image"]::after,
+.section-builder [class*="ImageBlock"]::after {
+  content: "Quick Shop";
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  place-items: center;
+  height: 44px;
+  background: rgba(251, 247, 240, 0.92);
+  backdrop-filter: blur(4px);
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ssc-ink);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity .22s ease, transform .22s ease;
+  pointer-events: none;
+}
+
+.section-builder [class*="image-block"]:hover::after,
+.section-builder [class*="block--image"]:hover::after,
+.section-builder [class*="ImageBlock"]:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Newsletter section ── */
+.ssc-nl-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.ssc-nl-row {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid var(--ssc-line);
+}
+
+.ssc-nl-input {
+  flex: 1;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  border: 0;
+  background: transparent;
+  font-size: .85rem;
+  color: var(--ssc-ink);
+  outline: none;
+}
+
+.ssc-nl-input::placeholder {
+  color: var(--ssc-soft);
+}
+
+.ssc-nl-btn {
+  flex-shrink: 0;
+  padding: 0 1.75rem;
+  min-height: 48px;
+  border: 0;
+  border-left: 1px solid var(--ssc-line);
+  background: var(--ssc-ink);
+  color: var(--ssc-paper);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.ssc-nl-btn:hover {
+  background: #3a3530;
+}
+
+.ssc-nl-success {
+  margin: 0;
+  font-size: .82rem;
+  color: var(--ssc-muted);
+}
+
 /* ── Mobile: collapse sticky ATC label ── */
 @media (max-width: 640px) {
   .ssc-sticky-atc { padding-inline: 1rem; }
   .ssc-sticky-atc .ssc-button { min-width: 120px; font-size: .65rem; }
   .ssc-sticky-atc__title { font-size: .68rem; }
+
+  .ssc-nl-row { flex-direction: column; border: 0; gap: .75rem; }
+  .ssc-nl-input { border: 1px solid var(--ssc-line); min-height: 48px; }
+  .ssc-nl-btn { min-width: 100%; border-left: 0; }
 }

@@ -19,7 +19,7 @@
             "text": "<p>MOVE. BREATHE. CONNECT.</p>",
             "width": "fit-content",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "h6",
             "font": "var(--font-body--family)",
             "font_size": "0.75rem",
@@ -45,7 +45,7 @@
             "text": "<h1>Mindful Essentials for Your Flow</h1>",
             "width": "fit-content",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "h1",
             "font": "var(--font-heading--family)",
             "font_size": "",
@@ -99,11 +99,11 @@
         "open_in_new_tab": false,
         "content_direction": "column",
         "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
+        "horizontal_alignment": "center",
         "vertical_alignment": "center",
         "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "flex-start",
-        "vertical_alignment_flex_direction_column": "flex-end",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
         "gap": 16,
         "section_width": "page-width",
         "section_height": "large",
@@ -313,12 +313,38 @@
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
+                },
+                "price": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Rp 109.000</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "image",
                 "title",
                 "description",
+                "price",
                 "button"
               ]
             },
@@ -447,12 +473,38 @@
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
+                },
+                "price": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Rp 109.000</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "image",
                 "title",
                 "description",
+                "price",
                 "button"
               ]
             },
@@ -581,12 +633,38 @@
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
+                },
+                "price": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Rp 109.000</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "image",
                 "title",
                 "description",
+                "price",
                 "button"
               ]
             }
@@ -761,12 +839,38 @@
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
+                },
+                "price": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Rp 389.000</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "image",
                 "title",
                 "description",
+                "price",
                 "button"
               ]
             },
@@ -894,12 +998,38 @@
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
+                },
+                "price": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Rp 249.000</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "image",
                 "title",
                 "description",
+                "price",
                 "button"
               ]
             },
@@ -1027,12 +1157,38 @@
                     "custom_width_mobile": 100
                   },
                   "blocks": {}
+                },
+                "price": {
+                  "type": "text",
+                  "settings": {
+                    "text": "<p>Rp 249.000</p>",
+                    "width": "100%",
+                    "max_width": "normal",
+                    "alignment": "left",
+                    "type_preset": "paragraph",
+                    "font": "var(--font-body--family)",
+                    "font_size": "0.85rem",
+                    "line_height": "normal",
+                    "letter_spacing": "normal",
+                    "case": "none",
+                    "wrap": "pretty",
+                    "color": "var(--color-foreground)",
+                    "background": false,
+                    "background_color": "#00000026",
+                    "corner_radius": 0,
+                    "padding-block-start": 0,
+                    "padding-block-end": 8,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "image",
                 "title",
                 "description",
+                "price",
                 "button"
               ]
             }
@@ -1895,6 +2051,100 @@
         "padding-block-start": 72,
         "padding-block-end": 72
       }
+    },
+    "newsletter_ssc": {
+      "type": "section",
+      "blocks": {
+        "nl_heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Join the Club</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "",
+            "line_height": "tight",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 12,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "nl_desc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be the first to know about new arrivals, exclusive offers, and wellness inspiration.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "loose",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 28,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "nl_form": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{% form 'customer', id: 'ssc-newsletter-form', class: 'ssc-nl-form' %}<input type=\"hidden\" name=\"contact[tags]\" value=\"newsletter\"><div class=\"ssc-nl-row\"><input type=\"email\" name=\"contact[email]\" placeholder=\"Your email address\" class=\"ssc-nl-input\" required autocomplete=\"email\"><button type=\"submit\" class=\"ssc-nl-btn\">Subscribe</button></div>{% if form.posted_successfully? %}<p class=\"ssc-nl-success\">You're in — welcome to the Club.</p>{% endif %}{% endform %}"
+          }
+        }
+      },
+      "block_order": [
+        "nl_heading",
+        "nl_desc",
+        "nl_form"
+      ],
+      "name": "Newsletter",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "center",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 0,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 96,
+        "padding-block-end": 96
+      }
     }
   },
   "order": [
@@ -1902,6 +2152,7 @@
     "shop_by_category",
     "brand_story",
     "hero_story",
-    "feature_bar"
+    "feature_bar",
+    "newsletter_ssc"
   ]
 }
