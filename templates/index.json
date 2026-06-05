@@ -231,7 +231,7 @@
                 "image": {
                   "type": "image",
                   "settings": {
-                    "link": "shopify://collections/all",
+                    "link": "shopify://products/gripped-pilates-socks-unisex",
                     "image_ratio": "portrait",
                     "width": "fill",
                     "custom_width": 100,
@@ -314,7 +314,12 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["image", "title", "description", "button"]
+              "block_order": [
+                "image",
+                "title",
+                "description",
+                "button"
+              ]
             },
             "sock_2": {
               "type": "group",
@@ -442,7 +447,12 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["image", "title", "description", "button"]
+              "block_order": [
+                "image",
+                "title",
+                "description",
+                "button"
+              ]
             },
             "sock_3": {
               "type": "group",
@@ -570,10 +580,19 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["image", "title", "description", "button"]
+              "block_order": [
+                "image",
+                "title",
+                "description",
+                "button"
+              ]
             }
           },
-          "block_order": ["sock_1", "sock_2", "sock_3"]
+          "block_order": [
+            "sock_1",
+            "sock_2",
+            "sock_3"
+          ]
         },
         "accessories_row": {
           "type": "group",
@@ -741,7 +760,12 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["image", "title", "description", "button"]
+              "block_order": [
+                "image",
+                "title",
+                "description",
+                "button"
+              ]
             },
             "tote_1": {
               "type": "group",
@@ -869,7 +893,12 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["image", "title", "description", "button"]
+              "block_order": [
+                "image",
+                "title",
+                "description",
+                "button"
+              ]
             },
             "tote_2": {
               "type": "group",
@@ -997,13 +1026,26 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["image", "title", "description", "button"]
+              "block_order": [
+                "image",
+                "title",
+                "description",
+                "button"
+              ]
             }
           },
-          "block_order": ["bottle_1", "tote_1", "tote_2"]
+          "block_order": [
+            "bottle_1",
+            "tote_1",
+            "tote_2"
+          ]
         }
       },
-      "block_order": ["heading", "socks_row", "accessories_row"],
+      "block_order": [
+        "heading",
+        "socks_row",
+        "accessories_row"
+      ],
       "name": "The Collection",
       "settings": {
         "content_direction": "column",
